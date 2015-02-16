@@ -1,6 +1,23 @@
 "use strict";
 (function(window, undefined){
-	var NodeList = function(){};
+	var global = global || window;
+	var NodeList = global.NodeList = function(){};
+	NodeList.prototype = {
+		addFirst:function(node){
+			if(null === this._first){
+				this._first = node;
+				this._last = node;
+				node.next = null;
+				node.previous = null;
+			}
+			else{
+				node.next = this._first;
+				this._first.previous = node;
+				this._first = node;
+			}
+			return this;
+		}
+	};
 	NodeList.prototype.constructor = NodeList;
 	Object.defineProperties(NodeList.prototype, {
 		first:{
@@ -20,7 +37,7 @@
 			}
 		}
 	});
-	NodeList.prototype.addFirst = function(node){
+	/*NodeList.prototype.addFirst = function(node){
 		if(null === this._first){
 			this._first = node;
 			this._last = node;
@@ -33,7 +50,7 @@
 			this._first = node;
 		}
 		return this;
-	};
+	};*/
 	NodeList.prototype.addLast = function(node){
 		if(null === this._first){
 			this._first = node;
@@ -113,6 +130,4 @@
 		}
 		this._last = null;
 	};
-	var global = global || window;
-	global.NodeList = NodeList;
 }(window));
