@@ -1,5 +1,5 @@
 "use strict";
-define([], function(){
+(function(window, undefined){
   function NodeList(){
 		this.first = null;
 		this.last = null;
@@ -93,5 +93,6 @@ define([], function(){
 		}
 		this.last = null;
 	};
-	return NodeList;
-});
+	var global = global || window;
+	global.NodeList = NodeList;
+}(window, undefined));
