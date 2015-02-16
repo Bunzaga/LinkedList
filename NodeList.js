@@ -1,65 +1,84 @@
 "use strict";
 (function(window, undefined){
-  function NodeList(){
-		this.first = null;
-		this.last = null;
-	};
+	var NodeList = function(){};
+	NodeList.prototype.constructor = NodeList;
+	Object.defineProperties(NodeList.prototype, {
+		first:{
+			get: function(){
+				return this._first || (this._first = null);
+			},
+			set: function(){
+				return this._first || (this._first = null);
+			}
+		},
+		last:{
+			get: function(){
+				return this._last || (this._last = null);
+			},
+			set: function(){
+				return this._last || (this._last = null);
+			}
+		}
+	});
 	NodeList.prototype.addFirst = function(node){
-		if(null === this.first){
-			this.first = node;
-			this.last = node;
+		if(null === this._first){
+			this._first = node;
+			this._last = node;
 			node.next = null;
 			node.previous = null;
 		}
 		else{
-			node.next = this.first;
-			this.first.previous = node;
-			this.first = node;
+			node.next = this._first;
+			this._first.previous = node;
+			this._first = node;
 		}
 		return this;
 	};
 	NodeList.prototype.addLast = function(node){
-		if(null === this.first){
-			this.first = node;
-			this.last = node;
+		if(null === this._first){
+			this._first = node;
+			this._last = node;
 			node.next = null;
 			node.previous = null;
 		}
 		else{
-			this.last.next = node;
-			node.previous = this.last;
+			this._last.next = node;
+			node.previous = this._last;
 			node.next = null;
-			this.last = node;
+			this._last = node;
 		}
 		return this;
 	};
 	NodeList.prototype.addSorted = function(node){
-		if(null === this.first){
-			this.first = node;
-			this.last = node;
+		if(null === this._first){
+			this._first = node;
+			this._last = node;
 			node.next = null;
 			node.previous = null;
 		}
 		else{
-			var n = this.last;
+			var n = this._last;
 			while(n !== null){
 				if(n.priority <= node.priority){
 					break;
 				}
 				n = n.previous;
 			}
-			if(n === this.last){
-				this.last.next = node;
-				node.previous = this.last;
+			// add to the end of the list
+			if(n === this._last){
+				this._last.next = node;
+				node.previous = this._last;
 				node.next = null;
-				this.last = node;
+				this._last = node;
 			}
+			// add to the front of the list
 			else if(null === n){
-				node.next = this.first;
+				node.next = this._first;
 				node.previous = null;
-				this.first.previous = node;
-				this.first = node;
+				this._first.previous = node;
+				this._first = node;
 			}
+			// add behind the same or lower priority
 			else{
 				node.next = n.next;
 				node.previous = n;
@@ -70,29 +89,30 @@
 		return this;
 	};
 	NodeList.prototype.remove = function(node){
-		if(this.first === node){
-			this.first = this.first.next;
+		if(this._first === node){
+			this._first = this._first.next;
 		}
-		if(this.last === node){
-			this.last = this.last.previous;
+		if(this._last === node){
+			this._last = this._last.previous;
 		}
-		if(node.previous != null){
+		if(node.previous !== null){
 			node.previous.next = node.next;
 		}
-		if(node.next != null){
+		if(node.next !== null){
 			node.next.previous = node.previous;
 		}
 		return this;
 	};
 	NodeList.prototype.clear = function(){
-		while(null !== this.first){
-			var node = this.first;
-			this.first = node.next;
+		var node;
+		while(null !== this._first){
+			node = this._first;
+			this._first = node.next;
 			node.previous = null;
 			node.next = null;
 		}
-		this.last = null;
+		this._last = null;
 	};
 	var global = global || window;
 	global.NodeList = NodeList;
-}(window, undefined));
+}(window));
