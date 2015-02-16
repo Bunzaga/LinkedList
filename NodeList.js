@@ -1,5 +1,5 @@
 "use strict";
-var NodeList = (function(window, undefined){
+;(function(window, undefined){
 	function NodeList(){};
 	NodeList.prototype = {
 		addFirst:function(node){
@@ -115,7 +115,7 @@ var NodeList = (function(window, undefined){
 			}
 		}
 	});
-	//var global = global || window;
-	// global.NodeList = NodeList;
+	var global = global || window;
+	global.NodeList = NodeList;
 	return NodeList;
 }(window));
