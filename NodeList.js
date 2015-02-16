@@ -1,5 +1,5 @@
 "use strict";
-;define('NodeList', [], function(){
+define('NodeList', [], function(){
 	function NodeList(){};
 	NodeList.prototype = {
 		addFirst:function(node){
