@@ -1,7 +1,7 @@
 "use strict";
-;(function(window, undefined){
-	function BNodeList(){};
-	BNodeList.prototype = {
+;define([], function(){
+	function NodeList(){};
+	NodeList.prototype = {
 		addFirst:function(node){
 			if(null === this._first){
 				this._first = node;
@@ -96,8 +96,8 @@
 			this._last = null;
 		}
 	};
-	BNodeList.prototype.constructor = BNodeList;
-	Object.defineProperties(BNodeList.prototype, {
+	NodeList.prototype.constructor = NodeList;
+	Object.defineProperties(NodeList.prototype, {
 		first:{
 			get: function(){
 				return this._first || (this._first = null);
@@ -115,7 +115,7 @@
 			}
 		}
 	});
-	var global = global || window;
-	global.BNodeList = BNodeList;
-	return BNodeList;
-}(window));
+//	var global = global || window;
+//	global.NodeList = NodeList;
+	return NodeList;
+});
