@@ -1,5 +1,5 @@
 "use strict";
-;define([], function(){
+;goo.define([], function(){
 	function NodeList(){};
 	NodeList.prototype = {
 		addFirst:function(node){
