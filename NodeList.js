@@ -86,7 +86,7 @@
 			}
 			return this;
 		},
-		clear = function(){
+		clear:function(){
 			var node;
 			while(null !== this._first){
 				node = this._first;
