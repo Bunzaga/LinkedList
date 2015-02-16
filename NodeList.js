@@ -1,5 +1,5 @@
 "use strict";
-define('NodeList', [], function(){
+;(function(window, undefined){
 	function NodeList(){};
 	NodeList.prototype = {
 		addFirst:function(node){
@@ -115,7 +115,5 @@ define('NodeList', [], function(){
 			}
 		}
 	});
-//	var global = global || window;
-//	global.NodeList = NodeList;
-	return NodeList;
-});
+	window.NodeList = NodeList;
+}(window));
