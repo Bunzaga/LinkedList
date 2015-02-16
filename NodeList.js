@@ -1,7 +1,6 @@
 "use strict";
-(function(window, undefined){
-	var global = global || window;
-	var NodeList = global.NodeList = function(){};
+var NodeList = (function(window, undefined){
+	function NodeList(){};
 	NodeList.prototype = {
 		addFirst:function(node){
 			if(null === this._first){
@@ -116,4 +115,7 @@
 			}
 		}
 	});
+	//var global = global || window;
+	// global.NodeList = NodeList;
+	return NodeList;
 }(window));
