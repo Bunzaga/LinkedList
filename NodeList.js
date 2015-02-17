@@ -1,6 +1,9 @@
 "use strict";
 ;(function(window, undefined){
-	function NodeList(){};
+	function NodeList(){
+		this.first = null;
+		this.last = null;
+	};
 	NodeList.prototype = {
 		addFirst:function(node){
 			console.log('addFirst()');
@@ -99,28 +102,7 @@
 			this.last = null;
 		}
 	};
+	NodeList.prototype = Object.create(NodeList);
 	NodeList.prototype.constructor = NodeList;
-	Object.defineProperties(NodeList, {
-		first:{
-			get: function(){
-				if(this._first === undefined){this._first = null;}
-				return this._first;
-			},
-			set: function(){
-				if(this._first === undefined){this._first = null;}
-				return this._first;
-			}
-		},
-		last:{
-			get: function(){
-				if(this._last === undefined){this._last = null;}
-				return this._last;
-			},
-			set: function(){
-				if(this._last === undefined){this._last = null;}
-				return this._last;
-			}
-		}
-	});
 	window.NodeList = NodeList;
 }(window));
