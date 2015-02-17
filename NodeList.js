@@ -1,6 +1,10 @@
 "use strict";
-;define([],function(){
-	function NodeList(){
+
+// hack to make it work with require require (create) or goo require (published)
+(function (define, require) {
+    // define your module in here
+    define([], function () {
+        function NodeList(){
 		this.first = null;
 		this.last = null;
 	};
@@ -104,4 +108,8 @@
 		}
 	};
 	return NodeList;
-});
+    });
+})(
+    goo.useOwnRequire ? goo.define : define, 
+    goo.useOwnRequire ? goo.require : require, 
+);
