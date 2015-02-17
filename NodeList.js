@@ -3,7 +3,10 @@
 	function NodeList(){};
 	NodeList.prototype = {
 		addFirst:function(node){
+			console.log('addFirst()');
+			console.log(node);
 			if(null === this._first){
+				console.log('null === this._first');
 				this._first = node;
 				this._last = node;
 				node.next = null;
