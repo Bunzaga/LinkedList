@@ -1,5 +1,5 @@
 "use strict";
-;goo.define([],function(){
+;define([],function(){
 	function NodeList(){
 		this.first = null;
 		this.last = null;
