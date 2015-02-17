@@ -5,6 +5,7 @@
 		this.last = null;
 	};
 	NodeList.prototype = {
+		constructor:NodeList,
 		addFirst:function(node){
 			console.log('addFirst()');
 			console.log(node);
@@ -102,7 +103,5 @@
 			this.last = null;
 		}
 	};
-	NodeList.prototype = Object.create(NodeList);
-	NodeList.prototype.constructor = NodeList;
 	window.NodeList = NodeList;
 }(window));
