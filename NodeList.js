@@ -1,7 +1,7 @@
 "use strict";
 
 // hack to make it work with require require (create) or goo require (published)
-(function (define, require) {
+;(function (define, require) {
     // define your module in here
     define([], function () {
         function NodeList(){
