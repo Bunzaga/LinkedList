@@ -5,44 +5,44 @@
 		addFirst:function(node){
 			console.log('addFirst()');
 			console.log(node);
-			if(null === this._first){
-				console.log('null === this._first');
-				this._first = node;
-				this._last = node;
+			if(null === this.first){
+				console.log('null === this.first');
+				this.first = node;
+				this.last = node;
 				node.next = null;
 				node.previous = null;
 			}
 			else{
-				node.next = this._first;
-				this._first.previous = node;
-				this._first = node;
+				node.next = this.first;
+				this.first.previous = node;
+				this.first = node;
 			}
 			return this;
 		},
 		addLast:function(node){
-			if(null === this._first){
-				this._first = node;
-				this._last = node;
+			if(null === this.first){
+				this.first = node;
+				this.last = node;
 				node.next = null;
 				node.previous = null;
 			}
 			else{
-				this._last.next = node;
-				node.previous = this._last;
+				this.last.next = node;
+				node.previous = this.last;
 				node.next = null;
-				this._last = node;
+				this.last = node;
 			}
 			return this;
 		},
 		addSorted:function(node){
-			if(null === this._first){
-				this._first = node;
-				this._last = node;
+			if(null === this.first){
+				this.first = node;
+				this.last = node;
 				node.next = null;
 				node.previous = null;
 			}
 			else{
-				var n = this._last;
+				var n = this.last;
 				while(n !== null){
 					if(n.priority <= node.priority){
 						break;
@@ -50,18 +50,18 @@
 					n = n.previous;
 				}
 				// add to the end of the list
-				if(n === this._last){
-					this._last.next = node;
-					node.previous = this._last;
+				if(n === this.last){
+					this.last.next = node;
+					node.previous = this.last;
 					node.next = null;
-					this._last = node;
+					this.last = node;
 				}
 				// add to the front of the list
 				else if(null === n){
-					node.next = this._first;
+					node.next = this.first;
 					node.previous = null;
-					this._first.previous = node;
-					this._first = node;
+					this.first.previous = node;
+					this.first = node;
 				}
 				// add behind the same or lower priority
 				else{
@@ -74,11 +74,11 @@
 			return this;
 		},
 		remove:function(node){
-			if(this._first === node){
-				this._first = this._first.next;
+			if(this.first === node){
+				this.first = this.first.next;
 			}
-			if(this._last === node){
-				this._last = this._last.previous;
+			if(this.last === node){
+				this.last = this.last.previous;
 			}
 			if(node.previous !== null){
 				node.previous.next = node.next;
@@ -90,13 +90,13 @@
 		},
 		clear:function(){
 			var node;
-			while(null !== this._first){
-				node = this._first;
-				this._first = node.next;
+			while(null !== this.first){
+				node = this.first;
+				this.first = node.next;
 				node.previous = null;
 				node.next = null;
 			}
-			this._last = null;
+			this.last = null;
 		}
 	};
 	NodeList.prototype.constructor = NodeList;
