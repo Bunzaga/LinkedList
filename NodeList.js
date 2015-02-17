@@ -109,7 +109,7 @@
 	};
 	return NodeList;
     });
-})(
+}(
     goo.useOwnRequire ? goo.define : define, 
     goo.useOwnRequire ? goo.require : require, 
-);
+));
