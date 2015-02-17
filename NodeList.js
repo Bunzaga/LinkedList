@@ -103,18 +103,22 @@
 	Object.defineProperties(NodeList.prototype, {
 		first:{
 			get: function(){
-				return this._first || (this._first = null);
+				if(this._first === undefined){this._first = null;}
+				return this._first;
 			},
 			set: function(){
-				return this._first || (this._first = null);
+				if(this._first === undefined){this._first = null;}
+				return this._first;
 			}
 		},
 		last:{
 			get: function(){
-				return this._last || (this._last = null);
+				if(this._last === undefined){this._last = null;}
+				return this._last;
 			},
 			set: function(){
-				return this._last || (this._last = null);
+				if(this._last === undefined){this._last = null;}
+				return this._last;
 			}
 		}
 	});
