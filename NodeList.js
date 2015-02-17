@@ -111,5 +111,5 @@
     });
 }(
     goo.useOwnRequire ? goo.define : define, 
-    goo.useOwnRequire ? goo.require : require, 
+    goo.useOwnRequire ? goo.require : require
 ));
