@@ -100,7 +100,7 @@
 		}
 	};
 	NodeList.prototype.constructor = NodeList;
-	Object.defineProperties(NodeList.prototype, {
+	Object.defineProperties(NodeList, {
 		first:{
 			get: function(){
 				if(this._first === undefined){this._first = null;}
