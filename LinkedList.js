@@ -1,7 +1,8 @@
 "use strict";
 
 // hack to make it work with require require (create) or goo require (published)
-;(function (window, undefined) {
+;(function (window, define, undefined) {
+	define([],function(){
 	function LinkedList(){
 		this.first = null;
 		this.last = null;
@@ -105,16 +106,6 @@
 			this.last = null;
 		}
 	};
-	if(goo.useOwnRequire){
-		console.log('using goo.define...');
-		goo.define([], function(){
-        		return LinkedList;
-		});
-	}
-	else{
-		console.log('Found define...');
-		define(function(){
-        		return LinkedList;
-		});
-	}
-}(window));
+	return linkedList;
+	});
+}(window, (goo.useOwnRequire ? goo.define : define)));
