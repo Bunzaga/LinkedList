@@ -104,7 +104,7 @@
 			this.last = null;
 		}
 	};
-	define(function(){
+	define('LinkedList', [], function(){
 		return LinkedList;
 	});
 }(window));
