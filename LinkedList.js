@@ -104,7 +104,7 @@
 		}
 	};
 	if(typeof define === 'function' && define.amd){
-		define('LinkedList', function(){
+		define('https://bunzaga.github.io/LinkedList/LinkedList.js', function(){
 			return LinkedList;
 		});
 	}
