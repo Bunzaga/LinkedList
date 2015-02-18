@@ -106,6 +106,6 @@
 			this.last = null;
 		}
 	};
-	return linkedList;
+	return LinkedList;
 	});
 }(window, (goo.useOwnRequire ? goo.define : define)));
