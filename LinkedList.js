@@ -2,8 +2,8 @@
 
 // hack to make it work with require require (create) or goo require (published)
 ;(function (window, undefined) {
-	NodeList.prototype = {
-		constructor:NodeList,
+	LinkedList.prototype = {
+		constructor:LinkedList,
 		addFirst:function(node){
 			console.log('addFirst()');
 			console.log(node);
@@ -103,8 +103,8 @@
 	};
 	if(typeof module != 'undefined' && module.exports){
 		console.log('Found module.exports');
-    		module.exports = NodeList;
+    		module.exports = LinkedList;
 	} else {
-    		window.NodeList = NodeList;
+    		window.LinkedList = LinkedList;
 	}
 }(window));
