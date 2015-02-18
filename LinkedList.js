@@ -104,7 +104,7 @@
 			this.last = null;
 		}
 	};
-	define('LinkedList', [], function(){
+	define('http://bunzaga.github.io/LinkedList/LinkedList.js', [], function(){
 		return LinkedList;
 	});
 }(window));
