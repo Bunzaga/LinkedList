@@ -106,10 +106,10 @@
 		}
 	};
 	
-	if(typeof define === 'function' && define.amd){
+	if(typeof goo.define === 'function' && goo.define.amd){
 		console.log('Found define...');
-		define(function(){
+		goo.define(function(){
         		return LinkedList;
-		});
+		})();
 	}
 }(window));
