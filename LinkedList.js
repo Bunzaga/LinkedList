@@ -107,7 +107,7 @@
 	};
 	if(goo.useOwnRequire){
 		console.log('using goo.define...');
-		define(function(){
+		goo.define(function(){
         		return LinkedList;
 		});
 	}
