@@ -104,16 +104,7 @@
 			this.last = null;
 		}
 	};
-	if(goo.useOwnRequire){
-		console.log('using goo.define');
-		goo.define('LinkedList', [], function(){
-			return LinkedList;
-		});
-	}
-	else{
-		console.log('using normal define');
-		define(function(){
-			return LinkedList;
-		});
-	}
+	define(function(){
+		return LinkedList;
+	});
 }(window));
