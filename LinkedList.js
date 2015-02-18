@@ -111,5 +111,4 @@
         		return LinkedList;
 		}
 	}
-    });
 }(window));
