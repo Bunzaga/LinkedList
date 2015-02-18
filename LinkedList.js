@@ -2,6 +2,7 @@
 
 // hack to make it work with require require (create) or goo require (published)
 ;(function (window, undefined) {
+	function LinkedList(){}
 	LinkedList.prototype = {
 		constructor:LinkedList,
 		addFirst:function(node){
