@@ -108,4 +108,4 @@
 	};
 	return LinkedList;
 	});
-}(window, (goo.useOwnRequire ? goo.define : define)));
+}(window, (goo.useOwnRequire ? goo.define : define));
