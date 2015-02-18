@@ -101,11 +101,10 @@
 			this.last = null;
 		}
 	};
-	if (typeof module != 'undefined' && module.exports) {
+	if(typeof module != 'undefined' && module.exports){
 		console.log('Found module.exports');
     		module.exports = NodeList;
 	} else {
     		window.NodeList = NodeList;
 	}
-    });
 }(window));
