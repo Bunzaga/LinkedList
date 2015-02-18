@@ -1,6 +1,5 @@
 "use strict";
-// hack to make it work with require require (create) or goo require (published)
-;(function (window, undefined) {
+;(function (window, define, undefined) {
 	function LinkedList(){
 		this.first = null;
 		this.last = null;
@@ -104,7 +103,10 @@
 			this.last = null;
 		}
 	};
-	define('http://bunzaga.github.io/LinkedList/LinkedList.js', [], function(){
-		return LinkedList;
-	});
-}(window));
+	if(typeof define === 'function' && define.amd){
+		define('LinkedList', function(){
+			return LinkedList;
+		});
+	}
+	window.LinkedList = LinkedList;
+}(window, (goo.useOwnRequire ? goo.define : define)));
