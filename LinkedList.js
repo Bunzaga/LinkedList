@@ -105,10 +105,11 @@
 			this.last = null;
 		}
 	};
-	if (typeof define === 'function' && define.amd){
+	
+	if(typeof define === 'function' && define.amd){
 		console.log('Found define...');
-		define(function() {
+		define(function(){
         		return LinkedList;
-		}
+		});
 	}
 }(window));
