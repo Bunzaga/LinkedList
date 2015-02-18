@@ -105,8 +105,13 @@
 			this.last = null;
 		}
 	};
-	
-	if(typeof define === 'function' && define.amd){
+	if(goo.useOwnRequire){
+		console.log('using goo.define...');
+		define(function(){
+        		return LinkedList;
+		});
+	}
+	else{
 		console.log('Found define...');
 		define(function(){
         		return LinkedList;
