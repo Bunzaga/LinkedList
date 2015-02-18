@@ -105,10 +105,10 @@
 			this.last = null;
 		}
 	};
-	if(typeof module != 'undefined' && module.exports){
-		console.log('Found module.exports');
-    		module.exports = LinkedList;
-	} else {
-    		window.LinkedList = LinkedList;
+	if (typeof define === 'function' && define.amd){
+		define(function() {
+        		return LinkedList;
+		}
 	}
+    });
 }(window));
