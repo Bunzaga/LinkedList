@@ -2,7 +2,7 @@
 
 // hack to make it work with require require (create) or goo require (published)
 ;(function (window, define, undefined) {
-	define(function(){
+	define([], function(){
 	function LinkedList(){
 		this.first = null;
 		this.last = null;
@@ -107,5 +107,5 @@
 		}
 	};
 	return LinkedList;
-	});
+});
 }(window, (goo.useOwnRequire ? goo.define : define)));
