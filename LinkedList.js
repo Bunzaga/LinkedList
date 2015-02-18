@@ -106,6 +106,7 @@
 		}
 	};
 	if (typeof define === 'function' && define.amd){
+		console.log('Found define...');
 		define(function() {
         		return LinkedList;
 		}
