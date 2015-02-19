@@ -103,8 +103,7 @@
 				}
 				this.last = null;
 			}
-			return LinkedList;
 		};
-		window.LinkedList = LinkedList;
+		return LinkedList;
 	});
 }(window, window.define));
