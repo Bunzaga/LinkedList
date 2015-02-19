@@ -106,4 +106,4 @@
 		};
 		return LinkedList;
 	});
-}(window, window.define));
+}(window, (goo.useOwnRequire ? window.define : define)));
