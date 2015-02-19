@@ -103,5 +103,5 @@
 			this.last = null;
 		}
 	};
-	window.LinkedList = window.LinkedList || LinkedList;
+	window.LinkedList = LinkedList;
 }(window));
