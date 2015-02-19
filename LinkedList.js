@@ -1,6 +1,5 @@
 "use strict";
-;(function (window, define, undefined) {
-	define('https://bunzaga.github.io/LinkedList/LinkedList.js', function(){
+;(function (window, undefined) {
 		function LinkedList(){
 			this.first = null;
 			this.last = null;
@@ -104,6 +103,5 @@
 				this.last = null;
 			}
 		};
-		return LinkedList;
-	});
-}(window, (goo.useOwnRequire ? window.define : define)));
+		window.LinkedList = LinkedList;
+}(window));
