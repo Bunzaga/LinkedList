@@ -90,6 +90,8 @@
 			if(node.next !== null){
 				node.next.previous = node.previous;
 			}
+			node.next = null;
+			node.previous = null;
 			return this;
 		},
 		clear:function(){
