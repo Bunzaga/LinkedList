@@ -74,17 +74,17 @@
 			}
 			return this;
 		},
-		addBefore:function(nodeB, nodeA){ // member, newNode
-			if(nodeA === nodeB){return;}
-			if(this.first === nodeB){
-				this.first = nodeA;
-				nodeA.previous = null;
+		addBefore:function(member, newNode){ // member, newNode
+			if(member === newNode){return;}
+			if(this.first === member){
+				this.first = newNode;
+				newNode.previous = null;
 			}
 			else{
-				nodeA.previous = nodeB.previous;
+				newNode.previous = member.previous;
 			}
-			nodeA.next = nodeB;
-			nodeB.previous = nodeA;
+			newNode.next = member;
+			member.previous = newNode;
 			return this;
 		},
 		addAfter:function(nodeB, nodeA){ // member, newNode
