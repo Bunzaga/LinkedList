@@ -77,6 +77,31 @@
 			}
 			return this;
 		},
+		addABeforeB:function(nodeA, nodeB){ // node, member
+			if(nodeA === nodeB){return;}
+			if(this.first === nodeB){
+				this.first = nodeA;
+				nodeA.previous = null;
+			}
+			else{
+				nodeA.previous = nodeB.previous;
+			}
+			nodeA.next = nodeB;
+			nodeB.previous = nodeA;
+			return this;
+		},
+		addAAfterB:function(nodeA, nodeB){ // node, member
+			if(nodeA === nodeB){return;}
+			if(this.last === nodeB){
+				this.last = nodeA;
+				nodeA.previous = nodeB;
+			}
+			else{
+				nodeA.next = nodeB.next;
+			}
+			nodeA.previous = nodeB;
+			nodeB.next = nodeA;
+		},
 		remove:function(node){
 			if(this.first === node){
 				this.first = this.first.next;
