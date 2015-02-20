@@ -7,10 +7,7 @@
 	LinkedList.prototype = {
 		constructor:LinkedList,
 		addFirst:function(node){
-			console.log('addFirst()');
-			console.log(node);
 			if(null === this.first){
-				console.log('null === this.first');
 				this.first = node;
 				this.last = node;
 				node.next = null;
@@ -77,7 +74,7 @@
 			}
 			return this;
 		},
-		addBefore:function(nodeA, nodeB){ // node, member
+		addBefore:function(nodeB, nodeA){ // member, newNode
 			if(nodeA === nodeB){return;}
 			if(this.first === nodeB){
 				this.first = nodeA;
@@ -90,7 +87,7 @@
 			nodeB.previous = nodeA;
 			return this;
 		},
-		addAfter:function(nodeA, nodeB){ // node, member
+		addAfter:function(nodeB, nodeA){ // member, newNode
 			if(nodeA === nodeB){return;}
 			if(this.last === nodeB){
 				this.last = nodeA;
@@ -101,6 +98,7 @@
 			}
 			nodeA.previous = nodeB;
 			nodeB.next = nodeA;
+			return this;
 		},
 		remove:function(node){
 			if(this.first === node){
