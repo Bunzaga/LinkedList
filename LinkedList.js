@@ -75,37 +75,31 @@
 			return this;
 		},
 		addBefore:function(member, newNode){
-			if(member === newNode){console.log('member === newNode');return;}
+			if(member === newNode){return;}
 			if(this.first === member){
-				console.log('this.first === member');
 				this.first = newNode;
-				console.log('this.first to newNode');
 				newNode.previous = null;
-				console.log('newNode.previous = null');
 			}
 			else{
-				console.log('member is not this.first');
 				newNode.previous = member.previous;
-				console.log('newNode.previous = member.previous');
 				newNode.previous.next = newNode;
 			}
 			newNode.next = member;
-			console.log('newNode.next = member');
 			member.previous = newNode;
-			console.log('member.previous = newNode');
 			return this;
 		},
-		addAfter:function(nodeB, nodeA){ // member, newNode
-			if(nodeA === nodeB){return;}
-			if(this.last === nodeB){
-				this.last = nodeA;
-				nodeA.previous = nodeB;
+		addAfter:function(member, newNode){ // member, newNode
+			if(newNode === member){return;}
+			if(this.last === member){
+				this.last = newNode;
+				newNode.previous = member;
 			}
 			else{
-				nodeA.next = nodeB.next;
+				newNode.next = member.next;
+				newNode.next.previous = newNode;
 			}
-			nodeA.previous = nodeB;
-			nodeB.next = nodeA;
+			newNode.previous = member;
+			member.next = newNode;
 			return this;
 		},
 		remove:function(node){
