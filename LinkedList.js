@@ -77,7 +77,7 @@
 			}
 			return this;
 		},
-		addABeforeB:function(nodeA, nodeB){ // node, member
+		addBefore:function(nodeA, nodeB){ // node, member
 			if(nodeA === nodeB){return;}
 			if(this.first === nodeB){
 				this.first = nodeA;
@@ -90,7 +90,7 @@
 			nodeB.previous = nodeA;
 			return this;
 		},
-		addAAfterB:function(nodeA, nodeB){ // node, member
+		addAfter:function(nodeA, nodeB){ // node, member
 			if(nodeA === nodeB){return;}
 			if(this.last === nodeB){
 				this.last = nodeA;
