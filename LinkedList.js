@@ -87,6 +87,7 @@
 				console.log('member is not this.first');
 				newNode.previous = member.previous;
 				console.log('newNode.previous = member.previous');
+				newNode.previous.next = newNode;
 			}
 			newNode.next = member;
 			console.log('newNode.next = member');
