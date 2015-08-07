@@ -102,14 +102,6 @@
 			member.next = newNode;
 			return this;
 		},
-		contains:function(node){
-			var n = this.first;
-			while(n !== null){
-				if(n === node){return true;}
-				n = n.next;
-			}
-			return false;
-		},
 		remove:function(node){
 			if(this.first === node){
 				this.first = this.first.next;
